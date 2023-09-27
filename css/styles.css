@@ -1,0 +1,107 @@
+/* GLOBALS */
+:root {
+    /* COLOURS */
+    /* Primary */
+    /* 96.7% */
+    --primary-background: #EEFAFF;
+    /* 90% */
+    --primary-lightest: #CCF0FF;
+    /* 66.7% */
+    --primary-light: #55CCFF;
+    /* 50% */
+    --primary: #00B2FF;
+    /* 33.3% */
+    --primary-dark: #0077AA;
+    /* 10% */
+    --primary-darkest: #002433;
+
+    /* Secondary */
+    /* 90% */
+    --secondary-lightest: #FFE7CC;
+    /* 66.7% */
+    --secondary-light: #FFB055;
+    /* 50% */
+    --secondary: #FF8900;
+    /* 33.3% */
+    --secondary-dark: #AA5B00;
+    /* 10% */
+    --secondary-darkest: #331B00;
+
+    /* Grays */
+    /* 90% */
+    --grey-lightest: #E5E5E5;
+    /* 66.7% */
+    --grey-light: #AAAAAA;
+    /* 50% */
+    --grey: #808080;
+    /* 33.3% */
+    --grey-dark: #555;
+    /* 10% */
+    --grey-darkest: #1A1A1A;
+
+    /* Ionic Colour Overrides */
+    --ion-color-primary: #00B2FF;
+    --ion-color-primary-rgb: 0, 178, 255;
+    --ion-color-primary-contrast: #000000;
+    --ion-color-primary-contrast-rgb: 0, 0, 0;
+    --ion-color-primary-shade: #009de0;
+    --ion-color-primary-tint: #1abaff;
+
+    --ion-color-secondary: #FF8900;
+    --ion-color-secondary-rgb: 255, 137, 0;
+    --ion-color-secondary-contrast: var(--primary-background);
+    --ion-color-secondary-contrast-rgb: 0, 0, 0;
+    --ion-color-secondary-shade: #e07900;
+    --ion-color-secondary-tint: #ff951a;
+}
+
+body {
+    background-color: var(--primary-lightest);
+}
+
+a {
+    text-decoration: none;
+}
+
+.primary-button {
+    color: var(--secondary);
+}
+
+/* SPLASH SCREEN */
+.splashscreen__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+}
+
+.splashscreen__button--login,
+:host(.button-solid.ion-color) .button-native {
+    color: var(--primary-background) !important;
+}
+
+.splashscreen__button--register {
+    margin-top: 28px;
+}
+
+.splashscreen__links {
+    position: absolute;
+    bottom: 0;
+    right: 16px;
+    display: flex;
+}
+
+.splashscreen__links a {
+    display: inline-block;
+    padding: 16px;
+    color: var(--primary-dark);
+    font-size: 20px;
+}
+
+.splashscreen__links a:first-child {
+    margin-left: auto;
+}
+
