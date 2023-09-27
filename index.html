@@ -14,22 +14,17 @@
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
 
+    <!-- App Components -->
+    <script type="module" src="/js/app.js"></script>
+
     <!-- App styles -->
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 
-<body class="splashscreen__body">
-    <div class="splashscreen__logo">
-        <img src="/img/logo-200-no-background.png" alt="FoodMe Logo">
-    </div>
-    <ion-button color="secondary" size="large"
-                class="splashscreen__button--login">Log in</ion-button>
-    <ion-button color="secondary" size="large" fill="outline"
-                class="splashscreen__button--register">Register</ion-button>
-    <div class="splashscreen__links">
-        <a href="#">Support</a>
-        <a href="#">About</a>
-    </div>
+<body>
+    <ion-app>
+        <ion-nav root="splash-screen"></ion-nav>
+    </ion-app>
 </body>
 
 </html>

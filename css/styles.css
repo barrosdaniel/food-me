@@ -68,7 +68,7 @@ a {
 }
 
 /* SPLASH SCREEN */
-.splashscreen__body {
+.splashscreen__content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -78,8 +78,7 @@ a {
     position: relative;
 }
 
-.splashscreen__button--login,
-:host(.button-solid.ion-color) .button-native {
+.splashscreen__button--login {
     color: var(--primary-background) !important;
 }
 
@@ -94,14 +93,13 @@ a {
     display: flex;
 }
 
-.splashscreen__links a {
-    display: inline-block;
-    padding: 16px;
-    color: var(--primary-dark);
-    font-size: 20px;
+.splashscreen__links ion-nav-link {
+    padding: 8px;
+    color: var(--primary-darkest) !important;
 }
 
-.splashscreen__links a:first-child {
-    margin-left: auto;
+ion-button .splashscreen__links {
+    --ion-color-primary: transparent !important;
 }
 
+/* APP */
