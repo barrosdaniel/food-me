@@ -53,6 +53,16 @@
     --ion-color-secondary-contrast-rgb: 0, 0, 0;
     --ion-color-secondary-shade: #e07900;
     --ion-color-secondary-tint: #ff951a;
+
+    /* --ion-background-color: var(--primary-lightest); */
+}
+
+ion-content {
+    --ion-background-color: var(--primary-lightest);
+}
+
+ion-card {
+    --ion-background-color: #fff;
 }
 
 body {
@@ -98,8 +108,11 @@ a {
     color: var(--primary-darkest) !important;
 }
 
-ion-button .splashscreen__links {
-    --ion-color-primary: transparent !important;
+/* APP */
+main {
+    --ion-background-color: #CCF0FF;
 }
 
-/* APP */
+:host {
+    --background: var(--ion-background-color, #CCF0FF);
+}

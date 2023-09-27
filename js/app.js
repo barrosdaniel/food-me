@@ -36,6 +36,14 @@ class AboutPage extends HTMLElement {
                 <ion-title>About</ion-title>
             </ion-toolbar>
         </ion-header>
+        <ion-content>
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title>FoodMe</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>Version 0.1.0</ion-card-content>
+            </ion-card>
+        </ion-content>
       `;
     }
 }
