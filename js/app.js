@@ -82,7 +82,7 @@ class SupportPage extends HTMLElement {
                 </ion-item>
             </ion-list>
             <ion-row class="ion-justify-content-center">
-                <ion-button color="secondary">Send Message</ion-button>
+                <ion-button color="secondary" id="open-modal" expand="block">Send Message</ion-button>
             </ion-row>
             <h4><ion-text>CALL US</ion-text></h4>
             <a href="https://foodme.com" class="ion-margin-bottom">
@@ -96,10 +96,18 @@ class SupportPage extends HTMLElement {
                 <a href="https://www.pinterest.com" class="ion-margin-end"><ion-icon name="logo-pinterest" color="primary" size="large"></ion-icon></a>
             </ion-row>
 
-
-
-
-
+            <ion-modal trigger="open-modal" id="message-sent-modal">
+                <ion-header>
+                    <ion-toolbar>
+                        <ion-title>Message Sent</ion-title>
+                    </ion-toolbar>
+                </ion-header>
+                <ion-content class="ion-padding">
+                    <ion-text><h3>Thank you for your message!</h3></ion-text>
+                    <p>We will get back to you as soon as possible.</p>
+                    <ion-button color="secondary" onclick="document.querySelector('#message-sent-modal').dismiss()">Close</ion-button>
+                </ion-content>
+            </ion-modal>
         </ion-content>
       `;
     }
