@@ -2,12 +2,14 @@ class SplashScreen extends HTMLElement {
     connectedCallback() {
       this.innerHTML = `
         <div class="splashscreen__content">
-            <ion-img src="/img/logo-200-no-background.png" alt="FoodMe logo">
+            <ion-img src="/img/logo-300-no-background.png" alt="FoodMe logo">
             </ion-img>
             <ion-button color="secondary" size="large"
                 class="splashscreen__button--login">Log in</ion-button>
-            <ion-button color="secondary" size="large" fill="outline"
-                class="splashscreen__button--register">Register</ion-button>
+            <ion-nav-link router-direction="forward" component="register-page">
+                <ion-button color="secondary" size="large" fill="outline"
+                    class="splashscreen__button--register">Register</ion-button>
+            </ion-nav-link>
             <div class="splashscreen__links">
                 <ion-nav-link router-direction="forward"
                     component="support-page">
@@ -114,3 +116,52 @@ class SupportPage extends HTMLElement {
 }
 
 customElements.define('support-page', SupportPage);
+
+class RegisterPage extends HTMLElement {
+    connectedCallback() {
+      this.innerHTML = `
+        <ion-header>
+            <ion-toolbar>
+                <ion-buttons slot="start">
+                    <ion-back-button></ion-back-button>
+                </ion-buttons>
+                <ion-title>Register</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list>
+                <ion-item>
+                    <ion-input label="Name" label-placement="stacked" placeholder="Enter name"></ion-input>
+                </ion-item>
+                <ion-item>
+                <ion-input type="email" label="Email" label-placement="stacked" placeholder="Enter email address"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input type="password" label="Password" label-placement="stacked" placeholder="Enter password">
+                    </ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-checkbox label-placement="end">I agree to the terms and conditions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ion-checkbox>
+                </ion-item>
+            </ion-list>
+            <ion-row class="ion-justify-content-center ion-margin-top">
+                <ion-button color="secondary" id="open-modal" expand="block" size="large">Register</ion-button>
+            </ion-row>
+
+            <ion-modal trigger="open-modal" id="account-created-modal">
+                <ion-header>
+                    <ion-toolbar>
+                        <ion-title>Account Created</ion-title>
+                    </ion-toolbar>
+                </ion-header>
+            <ion-content class="ion-padding">
+                <ion-text><h3>Your new FoodMe account has been created!</h3></ion-text>
+                <ion-button color="secondary" onclick="document.querySelector('#account-created-modal').dismiss()">Close</ion-button>
+            </ion-content>
+        </ion-modal>
+        </ion-content>
+      `;
+    }
+}
+
+customElements.define('register-page', RegisterPage);
