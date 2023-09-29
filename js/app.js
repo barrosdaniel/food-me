@@ -15,10 +15,10 @@ class SplashScreen extends HTMLElement {
             <div class="splashscreen__links">
                 <ion-nav-link router-direction="forward"
                     component="support-page">
-                    <ion-button color="text" fill="outline">Support</ion-button>
+                    <ion-button color="text" fill="outline" size="small">Support</ion-button>
                 </ion-nav-link>
                 <ion-nav-link router-direction="forward" component="about-page">
-                    <ion-button color="text" fill="outline">About
+                    <ion-button color="text" fill="outline" size="small">About
                     </ion-button>
                 </ion-nav-link>
             </div>
@@ -245,3 +245,45 @@ class RecoverPage extends HTMLElement {
 customElements.define('recover-page', RecoverPage);
 
 // Menu page
+class MenuPage extends HTMLElement {
+    connectedCallback() {
+      this.innerHTML = `
+        <ion-header>
+            <ion-toolbar>
+                <ion-title>Menu</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list lines="full">
+                <ion-item class="menu-list-item">
+                    <ion-icon name="search" color="primary"></ion-icon>
+                    <ion-text class="ion-margin-start"><h5>Search Meals</h5></ion-text>
+                    <ion-icon name="chevron-forward" color="primary" class="end-of-line"></ion-icon>
+                </ion-item>
+                <ion-item class="menu-list-item">
+                    <ion-icon name="pizza" color="primary"></ion-icon>
+                    <ion-text class="ion-margin-start"><h5>My Offered Meals</h5></ion-text>
+                    <ion-icon name="chevron-forward" color="primary" class="end-of-line"></ion-icon>
+                </ion-item>
+                <ion-item class="menu-list-item">
+                    <ion-icon name="person" color="primary"></ion-icon>
+                    <ion-text class="ion-margin-start"><h5>My Account</h5></ion-text>
+                    <ion-icon name="chevron-forward" color="primary" class="end-of-line"></ion-icon>
+                </ion-item>
+                <ion-item class="menu-list-item">
+                    <ion-icon name="mail" color="primary"></ion-icon>
+                    <ion-text class="ion-margin-start"><h5>Support</h5></ion-text>
+                    <ion-icon name="chevron-forward" color="primary" class="end-of-line"></ion-icon>
+                </ion-item>
+                <ion-item class="menu-list-item">
+                    <ion-icon name="build" color="primary"></ion-icon>
+                    <ion-text class="ion-margin-start"><h5>About</h5></ion-text>
+                    <ion-icon name="chevron-forward" color="primary" class="end-of-line"></ion-icon>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+      `;
+    }
+}
+
+customElements.define('menu-page', MenuPage);

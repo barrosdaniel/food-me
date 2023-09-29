@@ -130,3 +130,12 @@ main {
 :host {
     --background: var(--ion-background-color, #CCF0FF);
 }
+
+.menu-list-item {
+    background: #FFF;
+}
+
+.end-of-line {
+    display: inline-block;
+    margin-left: auto;
+}
