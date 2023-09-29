@@ -156,11 +156,11 @@ class RegisterPage extends HTMLElement {
                         <ion-title>Account Created</ion-title>
                     </ion-toolbar>
                 </ion-header>
-            <ion-content class="ion-padding">
-                <ion-text><h3>Your new FoodMe account has been created!</h3></ion-text>
-                <ion-button color="secondary" onclick="document.querySelector('#account-created-modal').dismiss()">Close</ion-button>
-            </ion-content>
-        </ion-modal>
+                <ion-content class="ion-padding">
+                    <ion-text><h3>Your new FoodMe account has been created!</h3></ion-text>
+                    <ion-button color="secondary" onclick="document.querySelector('#account-created-modal').dismiss()">Close</ion-button>
+                </ion-content>
+            </ion-modal>
         </ion-content>
       `;
     }
@@ -188,12 +188,12 @@ class LoginPage extends HTMLElement {
             </ion-list>
             <ion-row class="ion-justify-content-center ion-margin-top">
                 <ion-nav-link router-direction="forward" component="menu-page">
-                    <ion-button color="secondary" id="open-modal" expand="block" size="large">Login</ion-button>
+                    <ion-button color="secondary" expand="block" size="large">Login</ion-button>
                 </ion-nav-link>
             </ion-row>
             <ion-row class="ion-justify-content-center ion-margin-top">
                 <ion-nav-link router-direction="forward" component="recover-page">
-                    <ion-button color="primary" id="open-modal" expand="block" fill="outline">Recover Password</ion-button>
+                    <ion-button color="primary" expand="block" fill="outline">Recover Password</ion-button>
                 </ion-nav-link>
             </ion-row>
         </ion-content>
@@ -203,6 +203,45 @@ class LoginPage extends HTMLElement {
 
 customElements.define('login-page', LoginPage);
 
-// Recover page
+
+class RecoverPage extends HTMLElement {
+    connectedCallback() {
+      this.innerHTML = `
+        <ion-header>
+            <ion-toolbar>
+                <ion-buttons slot="start">
+                    <ion-back-button></ion-back-button>
+                </ion-buttons>
+                <ion-title>Recover Password</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list>
+                <ion-item>
+                    <ion-input type="email" label="Email" label-placement="stacked" placeholder="Enter email address"></ion-input>
+                </ion-item>
+            </ion-list>
+            <ion-row class="ion-justify-content-center ion-margin-top">
+                <ion-button color="secondary" id="open-modal" expand="block" size="large">Send Recovery Email</ion-button>
+            </ion-row>
+
+            <ion-modal trigger="open-modal" id="recovery-sent-modal">
+                <ion-header>
+                    <ion-toolbar>
+                        <ion-title>Email sent</ion-title>
+                    </ion-toolbar>
+                </ion-header>
+                <ion-content class="ion-padding">
+                    <ion-text><h3>Password recovery email sent successfully.</h3></ion-text>
+                    <ion-text><p>Please allow up to 15 minutes for the email to arrive at your mailbox. Remember to check your spam/junk folder.</p></ion-text>
+                    <ion-button color="secondary" onclick="document.querySelector('#recovery-sent-modal').dismiss()">Close</ion-button>
+                </ion-content>
+            </ion-modal>
+        </ion-content>
+      `;
+    }
+}
+
+customElements.define('recover-page', RecoverPage);
 
 // Menu page
