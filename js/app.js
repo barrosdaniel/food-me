@@ -270,16 +270,20 @@ class MenuPage extends HTMLElement {
                     <ion-text class="ion-margin-start"><h5>My Account</h5></ion-text>
                     <ion-icon name="chevron-forward" color="primary" class="end-of-line"></ion-icon>
                 </ion-item>
-                <ion-item class="menu-list-item">
-                    <ion-icon name="mail" color="primary"></ion-icon>
-                    <ion-text class="ion-margin-start"><h5>Support</h5></ion-text>
-                    <ion-icon name="chevron-forward" color="primary" class="end-of-line"></ion-icon>
-                </ion-item>
-                <ion-item class="menu-list-item">
-                    <ion-icon name="build" color="primary"></ion-icon>
-                    <ion-text class="ion-margin-start"><h5>About</h5></ion-text>
-                    <ion-icon name="chevron-forward" color="primary" class="end-of-line"></ion-icon>
-                </ion-item>
+                <ion-nav-link router-direction="forward" component="support-page">
+                    <ion-item class="menu-list-item">
+                        <ion-icon name="mail" color="primary"></ion-icon>
+                        <ion-text class="ion-margin-start"><h5>Support</h5></ion-text>
+                        <ion-icon name="chevron-forward" color="primary" class="end-of-line"></ion-icon>
+                    </ion-item>
+                </ion-nav-link>
+                <ion-nav-link router-direction="forward" component="about-page">
+                    <ion-item class="menu-list-item">
+                        <ion-icon name="build" color="primary"></ion-icon>
+                        <ion-text class="ion-margin-start"><h5>About</h5></ion-text>
+                        <ion-icon name="chevron-forward" color="primary" class="end-of-line"></ion-icon>
+                    </ion-item>
+                </ion-nav-link>
             </ion-list>
         </ion-content>
       `;
