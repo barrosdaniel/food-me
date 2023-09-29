@@ -4,8 +4,10 @@ class SplashScreen extends HTMLElement {
         <div class="splashscreen__content">
             <ion-img src="/img/logo-300-no-background.png" alt="FoodMe logo">
             </ion-img>
-            <ion-button color="secondary" size="large"
-                class="splashscreen__button--login">Log in</ion-button>
+            <ion-nav-link router-direction="forward" component="login-page">
+                <ion-button color="secondary" size="large"
+                    class="splashscreen__button--login">Log in</ion-button>
+            </ion-nav-link>
             <ion-nav-link router-direction="forward" component="register-page">
                 <ion-button color="secondary" size="large" fill="outline"
                     class="splashscreen__button--register">Register</ion-button>
@@ -165,3 +167,42 @@ class RegisterPage extends HTMLElement {
 }
 
 customElements.define('register-page', RegisterPage);
+
+class LoginPage extends HTMLElement {
+    connectedCallback() {
+      this.innerHTML = `
+        <ion-header>
+            <ion-toolbar>
+                <ion-title>Login</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list>
+                <ion-item>
+                    <ion-input type="email" label="Email" label-placement="stacked" placeholder="Enter email address"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input type="password" label="Password" label-placement="stacked" placeholder="Enter password">
+                    </ion-input>
+                </ion-item>
+            </ion-list>
+            <ion-row class="ion-justify-content-center ion-margin-top">
+                <ion-nav-link router-direction="forward" component="menu-page">
+                    <ion-button color="secondary" id="open-modal" expand="block" size="large">Login</ion-button>
+                </ion-nav-link>
+            </ion-row>
+            <ion-row class="ion-justify-content-center ion-margin-top">
+                <ion-nav-link router-direction="forward" component="recover-page">
+                    <ion-button color="primary" id="open-modal" expand="block" fill="outline">Recover Password</ion-button>
+                </ion-nav-link>
+            </ion-row>
+        </ion-content>
+      `;
+    }
+}
+
+customElements.define('login-page', LoginPage);
+
+// Recover page
+
+// Menu page
