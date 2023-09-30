@@ -244,7 +244,6 @@ class RecoverPage extends HTMLElement {
 
 customElements.define('recover-page', RecoverPage);
 
-// Menu page
 class MenuPage extends HTMLElement {
     connectedCallback() {
       this.innerHTML = `
@@ -265,11 +264,13 @@ class MenuPage extends HTMLElement {
                     <ion-text class="ion-margin-start"><h5>My Offered Meals</h5></ion-text>
                     <ion-icon name="chevron-forward" color="primary" class="end-of-line"></ion-icon>
                 </ion-item>
-                <ion-item class="menu-list-item">
-                    <ion-icon name="person" color="primary"></ion-icon>
-                    <ion-text class="ion-margin-start"><h5>My Account</h5></ion-text>
-                    <ion-icon name="chevron-forward" color="primary" class="end-of-line"></ion-icon>
-                </ion-item>
+                <ion-nav-link router-direction="forward" component="account-page">
+                    <ion-item class="menu-list-item">
+                        <ion-icon name="person" color="primary"></ion-icon>
+                        <ion-text class="ion-margin-start"><h5>My Account</h5></ion-text>
+                        <ion-icon name="chevron-forward" color="primary" class="end-of-line"></ion-icon>
+                    </ion-item>
+                </ion-nav-link>
                 <ion-nav-link router-direction="forward" component="support-page">
                     <ion-item class="menu-list-item">
                         <ion-icon name="mail" color="primary"></ion-icon>
@@ -291,3 +292,55 @@ class MenuPage extends HTMLElement {
 }
 
 customElements.define('menu-page', MenuPage);
+
+class AccountPage extends HTMLElement {
+    connectedCallback() {
+      this.innerHTML = `
+        <ion-header>
+            <ion-toolbar>
+                <ion-buttons slot="start">
+                    <ion-back-button></ion-back-button>
+                </ion-buttons>
+                <ion-title>My Account</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title>User Since</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>13/08/2023</ion-card-content>
+            </ion-card>
+            <ion-list>
+                <ion-item>
+                    <ion-input label="Name" label-placement="stacked" placeholder="John Doe"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input type="email" label="Email" label-placement="stacked" placeholder="john.doe@example.com.au"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input type="password" label="Password" label-placement="stacked" placeholder="********">
+                    </ion-input>
+                </ion-item>
+            </ion-list>
+            <ion-row class="ion-justify-content-center ion-margin-top">
+                <ion-button color="secondary" id="open-modal" expand="block" size="large">Save Changes</ion-button>
+            </ion-row>
+
+            <ion-modal trigger="open-modal" id="recovery-sent-modal">
+                <ion-header>
+                    <ion-toolbar>
+                        <ion-title>Changes saved</ion-title>
+                    </ion-toolbar>
+                </ion-header>
+                <ion-content class="ion-padding">
+                    <ion-text><h5>Changes saved successfully.</h5></ion-text>
+                    <ion-button color="secondary" onclick="document.querySelector('#recovery-sent-modal').dismiss()">Close</ion-button>
+                </ion-content>
+            </ion-modal>
+        </ion-content>
+      `;
+    }
+}
+
+customElements.define('account-page', AccountPage);
