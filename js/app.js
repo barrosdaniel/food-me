@@ -421,6 +421,7 @@ class SearchResultsPage extends HTMLElement {
                                 Within 5Km</h5></ion-text>
                 </ion-card-header>
                 <ion-card-content>
+                    <ion-nav-link router-direction="forward" component="meal-details-page">
                     <ion-list>
                         <ion-item>
                             <ion-thumbnail slot="start">
@@ -449,8 +450,8 @@ class SearchResultsPage extends HTMLElement {
                                 <p>$6<br>Jindalee</p>
                             </ion-text>
                         </ion-item>
-   
                     </ion-list>
+                    </ion-nav-link>
                 </ion-card-content>
             </ion-card>
         </ion-content>
@@ -459,3 +460,34 @@ class SearchResultsPage extends HTMLElement {
 }
 
 customElements.define('search-results-page', SearchResultsPage);
+
+class MealDetailsPage extends HTMLElement {
+    connectedCallback() {
+      this.innerHTML = `
+        <ion-header>
+            <ion-toolbar>
+                <ion-buttons slot="start">
+                    <ion-back-button></ion-back-button>
+                </ion-buttons>
+                <ion-title>Meal Details</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-card>
+                <img alt="Image of sandwich meal" src="/img/sandwich_400.jpg" />
+                <ion-card-header>
+                    <ion-card-title>Sandwich</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    Savor a delightful sandwich meal with layers of savory ham, crisp lettuce, juicy tomatoes, and creamy mayo nestled between fresh slices of artisanal bread.
+                    <p>$6<br>Jindalee<br>Prepared yesterday, 18:00</p>
+                    <h5>Call cook</h5>
+                    <a>0400 000 000</a>
+                </ion-card-content>
+            </ion-card>
+        </ion-content>
+      `;
+    }
+}
+
+customElements.define('meal-details-page', MealDetailsPage);
