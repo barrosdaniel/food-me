@@ -480,9 +480,10 @@ class MealDetailsPage extends HTMLElement {
                 </ion-card-header>
                 <ion-card-content>
                     Savor a delightful sandwich meal with layers of savory ham, crisp lettuce, juicy tomatoes, and creamy mayo nestled between fresh slices of artisanal bread.
-                    <p>$6<br>Jindalee<br>Prepared yesterday, 18:00</p>
-                    <h5>Call cook</h5>
-                    <a>0400 000 000</a>
+                    <p>Price: $6</p>
+                    <p>Location: Jindalee</p>
+                    <p>Prepared: yesterday, 18:00</p>
+                    <p>Call cook: <a href="tel:0400 000 000">0400 000 000</a></p>
                 </ion-card-content>
             </ion-card>
         </ion-content>
