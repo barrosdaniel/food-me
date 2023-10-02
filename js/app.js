@@ -261,11 +261,13 @@ class MenuPage extends HTMLElement {
                         <ion-icon name="chevron-forward" color="primary" class="end-of-line"></ion-icon>
                     </ion-item>
                 </ion-nav-link>
-                <ion-item class="menu-list-item">
-                    <ion-icon name="pizza" color="primary"></ion-icon>
-                    <ion-text class="ion-margin-start"><h5>My Offered Meals</h5></ion-text>
-                    <ion-icon name="chevron-forward" color="primary" class="end-of-line"></ion-icon>
-                </ion-item>
+                <ion-nav-link router-direction="forward" component="my-meals-page">
+                    <ion-item class="menu-list-item">
+                        <ion-icon name="pizza" color="primary"></ion-icon>
+                        <ion-text class="ion-margin-start"><h5>My Offered Meals</h5></ion-text>
+                        <ion-icon name="chevron-forward" color="primary" class="end-of-line"></ion-icon>
+                    </ion-item>
+                </ion-nav-link>
                 <ion-nav-link router-direction="forward" component="account-page">
                     <ion-item class="menu-list-item">
                         <ion-icon name="person" color="primary"></ion-icon>
@@ -492,3 +494,101 @@ class MealDetailsPage extends HTMLElement {
 }
 
 customElements.define('meal-details-page', MealDetailsPage);
+
+class MyMealsPage extends HTMLElement {
+    connectedCallback() {
+      this.innerHTML = `
+        <ion-header>
+            <ion-toolbar>
+                <ion-buttons slot="start">
+                    <ion-back-button></ion-back-button>
+                </ion-buttons>
+                <ion-title>My Offered Meals</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-card>
+                <ion-card-header>
+                    <ion-text><h5>Current Offers</h5></ion-text>
+                </ion-card-header>
+                <ion-card-content>
+                    <ion-list>
+                    <ion-nav-link router-direction="forward" component="edit-meal-details-page">
+                        <ion-item>
+                            <ion-thumbnail slot="start">
+                                <img alt="Sandwich meal image" src="/img/sandwich_200.jpg" />
+                            </ion-thumbnail>
+                            <ion-label>Sandwich</ion-label>
+                            <ion-text slot="end"><p>Yesterday</p></ion-text>
+                        </ion-item>
+                    </ion-nav-link>
+                    </ion-list>
+                </ion-card-content>
+            </ion-card>
+            <ion-card color="medium">
+                <ion-card-header>
+                    <ion-text><h5>Closed Offers</h5></ion-text>
+                </ion-card-header>
+                <ion-card-content>
+                    <ion-list class="ion-no-padding">
+                        <ion-item color="medium">
+                            <ion-thumbnail slot="start">
+                                <img alt="Lunchbox meal image" src="/img/lunchbox_200.jpg" />
+                            </ion-thumbnail>
+                            <ion-label>Lunchbox</ion-label>
+                            <ion-text slot="end"><p>Last week</p></ion-text>
+                        </ion-item>
+                    </ion-list>
+                </ion-card-content>
+            </ion-card>
+            <ion-row class="ion-justify-content-center ion-margin-top">
+                <ion-nav-link router-direction="forward" component="add-meal-offer-page">
+                    <ion-button color="secondary" size="large" expand="block">+ Add New Meal Offer</ion-button>
+                </ion-nav-link>
+            </ion-row>
+        </ion-content>
+      `;
+    }
+}
+
+customElements.define('my-meals-page', MyMealsPage);
+
+class EditMealDetailsPage extends HTMLElement {
+    connectedCallback() {
+      this.innerHTML = `
+        <ion-header>
+            <ion-toolbar>
+                <ion-buttons slot="start">
+                    <ion-back-button></ion-back-button>
+                </ion-buttons>
+                <ion-title>Edit Meal Offer</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            Edit Meal Offer Page
+        </ion-content>
+      `;
+    }
+}
+
+customElements.define('edit-meal-details-page', EditMealDetailsPage);
+
+class AddMealOfferPage extends HTMLElement {
+    connectedCallback() {
+      this.innerHTML = `
+        <ion-header>
+            <ion-toolbar>
+                <ion-buttons slot="start">
+                    <ion-back-button></ion-back-button>
+                </ion-buttons>
+                <ion-title>Add Meal Offer</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            Add Meal Offer Page
+        </ion-content>
+      `;
+    }
+}
+
+customElements.define('add-meal-offer-page', AddMealOfferPage);
