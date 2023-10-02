@@ -104,10 +104,11 @@ a {
 
 .splashscreen__button--login {
     color: var(--primary-background) !important;
+    margin-top: 32px;
 }
 
 .splashscreen__button--register {
-    margin-top: 28px;
+    margin-top: 32px;
 }
 
 .splashscreen__links {

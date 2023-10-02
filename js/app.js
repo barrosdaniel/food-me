@@ -254,11 +254,13 @@ class MenuPage extends HTMLElement {
         </ion-header>
         <ion-content>
             <ion-list lines="full">
-                <ion-item class="menu-list-item">
-                    <ion-icon name="search" color="primary"></ion-icon>
-                    <ion-text class="ion-margin-start"><h5>Search Meals</h5></ion-text>
-                    <ion-icon name="chevron-forward" color="primary" class="end-of-line"></ion-icon>
-                </ion-item>
+                <ion-nav-link router-direction="forward" component="search-page">
+                    <ion-item class="menu-list-item">
+                        <ion-icon name="search" color="primary"></ion-icon>
+                        <ion-text class="ion-margin-start"><h5>Search Meals</h5></ion-text>
+                        <ion-icon name="chevron-forward" color="primary" class="end-of-line"></ion-icon>
+                    </ion-item>
+                </ion-nav-link>
                 <ion-item class="menu-list-item">
                     <ion-icon name="pizza" color="primary"></ion-icon>
                     <ion-text class="ion-margin-start"><h5>My Offered Meals</h5></ion-text>
@@ -344,3 +346,116 @@ class AccountPage extends HTMLElement {
 }
 
 customElements.define('account-page', AccountPage);
+
+class SearchPage extends HTMLElement {
+    connectedCallback() {
+      this.innerHTML = `
+        <ion-header>
+            <ion-toolbar>
+                <ion-buttons slot="start">
+                    <ion-back-button></ion-back-button>
+                </ion-buttons>
+                <ion-title>Search Meals</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+            <ion-list>
+                <ion-item>
+                    <ion-select label="Select your meal" placeholder="Meal">
+                    <ion-select-option value="breakfast">Breakfast</ion-select-option>
+                    <ion-select-option value="lunch">Lunch</ion-select-option>
+                    <ion-select-option value="tea">Tea</ion-select-option>
+                    <ion-select-option value="dinner">Dinner</ion-select-option>
+                    <ion-select-option value="any-meal">Any Meal</ion-select-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-select label="Select the cuisine" placeholder="Cuisine">
+                    <ion-select-option value="european">European</ion-select-option>
+                    <ion-select-option value="chinese">Chinese</ion-select-option>
+                    <ion-select-option value="indian">Indian</ion-select-option>
+                    <ion-select-option value="mediterranean">Mediterranean</ion-select-option>
+                    <ion-select-option value="japanese">Japanese</ion-select-option>
+                    <ion-select-option value="mexican">Mexican</ion-select-option>
+                    <ion-select-option value="other">Other</ion-select-option>
+                    <ion-select-option value="any-cuisine">Any Cuisine</ion-select-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-select label="Select the max distance" placeholder="Distance">
+                    <ion-select-option value="5km">Within 5 Km</ion-select-option>
+                    <ion-select-option value="10km">Within 10 Km</ion-select-option>
+                    <ion-select-option value="20km">Within 20 Km</ion-select-option>
+                    <ion-select-option value="any-distance">Any Distance</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-list>
+            <ion-row class="ion-justify-content-center ion-margin-top">
+                <ion-nav-link router-direction="forward" component="search-results-page">
+                    <ion-button color="secondary" size="large" expand="block">Search Meals</ion-button>
+                </ion-nav-link>
+            </ion-row>
+        </ion-content>
+      `;
+    }
+}
+
+customElements.define('search-page', SearchPage);
+
+class SearchResultsPage extends HTMLElement {
+    connectedCallback() {
+      this.innerHTML = `
+        <ion-header>
+            <ion-toolbar>
+                <ion-buttons slot="start">
+                    <ion-back-button></ion-back-button>
+                </ion-buttons>
+                <ion-title>Matching Meals</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-card>
+                <ion-card-header>
+                    <ion-text><h5>Lunch meals<br>
+                                Any cuisine<br>
+                                Within 5Km</h5></ion-text>
+                </ion-card-header>
+                <ion-card-content>
+                    <ion-list>
+                        <ion-item>
+                            <ion-thumbnail slot="start">
+                                <img alt="Lunchbox meal image" src="/img/lunchbox_200.jpg" />
+                            </ion-thumbnail>
+                            <ion-label>Lunchbox</ion-label>
+                            <ion-text slot="end" color="secondary">
+                                <p>$5<br>Eglinton</p>
+                            </ion-text>
+                        </ion-item>
+                        <ion-item>
+                            <ion-thumbnail slot="start">
+                                <img alt="Pasta meal image" src="/img/pasta_200.jpg" />
+                            </ion-thumbnail>
+                            <ion-label>Pasta</ion-label>
+                            <ion-text slot="end" color="secondary">
+                                <p>$7.50<br>Alkimos</p>
+                            </ion-text>
+                        </ion-item>
+                        <ion-item>
+                            <ion-thumbnail slot="start">
+                                <img alt="Sandwich meal image" src="/img/sandwich_200.jpg" />
+                            </ion-thumbnail>
+                            <ion-label>Sandwich</ion-label>
+                            <ion-text slot="end" color="secondary">
+                                <p>$6<br>Jindalee</p>
+                            </ion-text>
+                        </ion-item>
+   
+                    </ion-list>
+                </ion-card-content>
+            </ion-card>
+        </ion-content>
+      `;
+    }
+}
+
+customElements.define('search-results-page', SearchResultsPage);
