@@ -2,7 +2,7 @@ class SplashScreen extends HTMLElement {
     connectedCallback() {
       this.innerHTML = `
         <div class="splashscreen__content">
-            <ion-img src="/img/logo-300-no-background.png" alt="FoodMe logo">
+            <ion-img src="img/logo-300-no-background.png" alt="FoodMe logo">
             </ion-img>
             <ion-nav-link router-direction="forward" component="login-page">
                 <ion-button color="secondary" size="large"
@@ -427,7 +427,7 @@ class SearchResultsPage extends HTMLElement {
                     <ion-list>
                         <ion-item>
                             <ion-thumbnail slot="start">
-                                <img alt="Lunchbox meal image" src="/img/lunchbox_200.jpg" />
+                                <img alt="Lunchbox meal image" src="img/lunchbox_200.jpg" />
                             </ion-thumbnail>
                             <ion-label>Lunchbox</ion-label>
                             <ion-text slot="end" color="secondary">
@@ -436,7 +436,7 @@ class SearchResultsPage extends HTMLElement {
                         </ion-item>
                         <ion-item>
                             <ion-thumbnail slot="start">
-                                <img alt="Pasta meal image" src="/img/pasta_200.jpg" />
+                                <img alt="Pasta meal image" src="img/pasta_200.jpg" />
                             </ion-thumbnail>
                             <ion-label>Pasta</ion-label>
                             <ion-text slot="end" color="secondary">
@@ -445,7 +445,7 @@ class SearchResultsPage extends HTMLElement {
                         </ion-item>
                         <ion-item>
                             <ion-thumbnail slot="start">
-                                <img alt="Sandwich meal image" src="/img/sandwich_200.jpg" />
+                                <img alt="Sandwich meal image" src="img/sandwich_200.jpg" />
                             </ion-thumbnail>
                             <ion-label>Sandwich</ion-label>
                             <ion-text slot="end" color="secondary">
@@ -476,7 +476,7 @@ class MealDetailsPage extends HTMLElement {
         </ion-header>
         <ion-content>
             <ion-card>
-                <img alt="Image of sandwich meal" src="/img/sandwich_400.jpg" />
+                <img alt="Image of sandwich meal" src="img/sandwich_400.jpg" />
                 <ion-card-header>
                     <ion-card-title>Sandwich</ion-card-title>
                 </ion-card-header>
@@ -516,7 +516,7 @@ class MyMealsPage extends HTMLElement {
                     <ion-nav-link router-direction="forward" component="edit-meal-details-page">
                         <ion-item>
                             <ion-thumbnail slot="start">
-                                <img alt="Sandwich meal image" src="/img/sandwich_200.jpg" />
+                                <img alt="Sandwich meal image" src="img/sandwich_200.jpg" />
                             </ion-thumbnail>
                             <ion-label>Sandwich</ion-label>
                             <ion-text slot="end"><p>Yesterday</p></ion-text>
@@ -533,7 +533,7 @@ class MyMealsPage extends HTMLElement {
                     <ion-list class="ion-no-padding">
                         <ion-item color="medium">
                             <ion-thumbnail slot="start">
-                                <img alt="Lunchbox meal image" src="/img/lunchbox_200.jpg" />
+                                <img alt="Lunchbox meal image" src="img/lunchbox_200.jpg" />
                             </ion-thumbnail>
                             <ion-label>Lunchbox</ion-label>
                             <ion-text slot="end"><p>Last week</p></ion-text>
@@ -592,7 +592,7 @@ class EditMealDetailsPage extends HTMLElement {
                 <ion-text><h5>Preview</h5></ion-text>
             </div>
             <ion-card>
-                <img alt="Image of sandwich meal" src="/img/sandwich_400.jpg" />
+                <img alt="Image of sandwich meal" src="img/sandwich_400.jpg" />
                 <ion-card-header>
                     <ion-card-title>Sandwich</ion-card-title>
                 </ion-card-header>
@@ -716,7 +716,7 @@ class AddMealOfferPage extends HTMLElement {
                 <ion-text><h5>Preview</h5></ion-text>
             </div>
             <ion-card>
-                <img alt="Image of sandwich meal" src="/img/sandwich_400.jpg" />
+                <img alt="Image of sandwich meal" src="img/sandwich_400.jpg" />
                 <ion-card-header>
                     <ion-card-title>Sandwich</ion-card-title>
                 </ion-card-header>
