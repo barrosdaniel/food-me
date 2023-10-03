@@ -565,13 +565,117 @@ class EditMealDetailsPage extends HTMLElement {
             </ion-toolbar>
         </ion-header>
         <ion-content>
-            Edit Meal Offer Page
+            <ion-list>
+                <ion-item>
+                    <ion-input label="Image" label-placement="stacked" placeholder="/files/images/sandwich.jpg"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input label="Title" label-placement="stacked" placeholder="Sandwich"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-textarea label="Description" label-placement="stacked" placeholder="Savor a delightful sandwich meal with layers of savory ham, crisp lettuce, juicy tomatoes, and creamy mayo nestled between fresh slices of artisanal bread." rows="4"></ion-textarea>
+                </ion-item>
+                <ion-item>
+                    <ion-input label="Price" label-placement="stacked" placeholder="$6"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input label="Location" label-placement="stacked" placeholder="Jindalee"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input label="Prepared" label-placement="stacked" placeholder="12/08/2023"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input label="Phone Number" label-placement="stacked" placeholder="0400 000 000"></ion-input>
+                </ion-item>
+            </ion-list>
+            <div class="ion-margin-start">
+                <ion-text><h5>Preview</h5></ion-text>
+            </div>
+            <ion-card>
+                <img alt="Image of sandwich meal" src="/img/sandwich_400.jpg" />
+                <ion-card-header>
+                    <ion-card-title>Sandwich</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    Savor a delightful sandwich meal with layers of savory ham, crisp lettuce, juicy tomatoes, and creamy mayo nestled between fresh slices of artisanal bread.
+                    <p>Price: $6</p>
+                    <p>Location: Jindalee</p>
+                    <p>Prepared: yesterday, 18:00</p>
+                    <p>Call cook: <a href="tel:0400 000 000">0400 000 000</a></p>
+                </ion-card-content>
+            </ion-card>
+            <ion-row class="ion-justify-content-between ion-margin">
+                <ion-button color="secondary" id="open-modal-save" size="large" expand="block">Save</ion-button>
+                <ion-nav-link router-direction="forward" component="delete-meal-page">
+                    <ion-button color="secondary" id="open-modal-delete" size="large" expand="block" fill="outline">Delete</ion-button>
+                </ion-nav-link>
+            </ion-row>
+
+            <ion-modal trigger="open-modal-save" id="save-edit-meal-modal">
+                <ion-header>
+                    <ion-toolbar>
+                        <ion-title>Meal Offer Saved</ion-title>
+                    </ion-toolbar>
+                </ion-header>
+                <ion-content class="ion-padding">
+                    <ion-text><p>Changes to meal offer saved successfully.</p></ion-text>
+                    <ion-button color="secondary" onclick="document.querySelector('#save-edit-meal-modal').dismiss()">Close</ion-button>
+                </ion-content>
+            </ion-modal>
         </ion-content>
       `;
     }
 }
 
 customElements.define('edit-meal-details-page', EditMealDetailsPage);
+
+class DeleteMealPage extends HTMLElement {
+    connectedCallback() {
+      this.innerHTML = `
+        <ion-header>
+            <ion-toolbar>
+                <ion-title>Delete Meal Offer?</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+            <ion-text><p>Are you sure you want to delete this meal offer?</p></ion-text>
+            <ion-row class="ion-justify-content-between ion-margin-vertical">
+                <ion-nav-link router-direction="forward" component="menu-page">
+                    <ion-button color="secondary" expand="block">Cancel</ion-button>
+                </ion-nav-link>
+                <ion-nav-link router-direction="forward" component="delete-meal-confirmation-page">
+                    <ion-button color="secondary" id="open-modal-delete" expand="block" fill="outline">Delete</ion-button>
+                </ion-nav-link>
+            </ion-row>
+
+        </ion-content>
+      `;
+    }
+}
+
+customElements.define('delete-meal-page', DeleteMealPage);
+
+class DeleteMealConfirmationPage extends HTMLElement {
+    connectedCallback() {
+      this.innerHTML = `
+        <ion-header>
+            <ion-toolbar>
+                <ion-title>Meal Deleted</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+            <ion-text><p>Meal offer deleted successfully.</p></ion-text>
+            <ion-row class="ion-justify-content-between ion-margin-vertical">
+                <ion-nav-link router-direction="forward" component="menu-page">
+                    <ion-button color="secondary" expand="block">Close</ion-button>
+                </ion-nav-link>
+            </ion-row>
+        </ion-content>
+      `;
+    }
+}
+
+customElements.define('delete-meal-confirmation-page', DeleteMealConfirmationPage);
 
 class AddMealOfferPage extends HTMLElement {
     connectedCallback() {
@@ -585,7 +689,61 @@ class AddMealOfferPage extends HTMLElement {
             </ion-toolbar>
         </ion-header>
         <ion-content>
-            Add Meal Offer Page
+            <ion-list>
+                <ion-item>
+                    <ion-input label="Image" label-placement="stacked" placeholder="/files/images/sandwich.jpg"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input label="Title" label-placement="stacked" placeholder="Sandwich"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-textarea label="Description" label-placement="stacked" placeholder="Savor a delightful sandwich meal with layers of savory ham, crisp lettuce, juicy tomatoes, and creamy mayo nestled between fresh slices of artisanal bread." rows="4"></ion-textarea>
+                </ion-item>
+                <ion-item>
+                    <ion-input label="Price" label-placement="stacked" placeholder="$6"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input label="Location" label-placement="stacked" placeholder="Jindalee"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input label="Prepared" label-placement="stacked" placeholder="12/08/2023"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input label="Phone Number" label-placement="stacked" placeholder="0400 000 000"></ion-input>
+                </ion-item>
+            </ion-list>
+            <div class="ion-margin-start">
+                <ion-text><h5>Preview</h5></ion-text>
+            </div>
+            <ion-card>
+                <img alt="Image of sandwich meal" src="/img/sandwich_400.jpg" />
+                <ion-card-header>
+                    <ion-card-title>Sandwich</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    Savor a delightful sandwich meal with layers of savory ham, crisp lettuce, juicy tomatoes, and creamy mayo nestled between fresh slices of artisanal bread.
+                    <p>Price: $6</p>
+                    <p>Location: Jindalee</p>
+                    <p>Prepared: yesterday, 18:00</p>
+                    <p>Call cook: <a href="tel:0400 000 000">0400 000 000</a></p>
+                </ion-card-content>
+            </ion-card>
+            <ion-row class="ion-justify-content-center ion-margin-vertical">
+                <ion-button color="secondary" id="open-modal" size="large" expand="block">Save Meal Offer</ion-button>
+            </ion-row>
+
+            <ion-modal trigger="open-modal" id="meal-saved-modal">
+                <ion-header>
+                    <ion-toolbar>
+                        <ion-title>Meal Offer Saved</ion-title>
+                    </ion-toolbar>
+                </ion-header>
+                <ion-content class="ion-padding">
+                    <ion-text><p>Thank you for adding your meal offer!</p>
+                    <p>Please ensure you monitor the phone number listed in your offering for contacts from interested hungry diners.</p></ion-text>
+                    <ion-button color="secondary" onclick="document.querySelector('#meal-saved-modal').dismiss()">Close</ion-button>
+                </ion-content>
+            </ion-modal>
         </ion-content>
       `;
     }
